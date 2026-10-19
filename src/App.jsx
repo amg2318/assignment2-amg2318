@@ -1,4 +1,5 @@
 import './App.css'
+import 'components/TaskCounter.jsx'
 
 // Assignment 2: build the Task Manager here.
 // Step 1 (after the Oct 12 class): hard-coded tasks, the five components, props.
@@ -8,6 +9,7 @@ function App() {
     <div className="app">
       <h1>Task Manager</h1>
       <p>Replace this with your components.</p>
+      <TaskCounter name={name}/>
     </div>
   )
 }
