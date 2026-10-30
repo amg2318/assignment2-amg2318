@@ -1,9 +1,8 @@
-function TaskCounter({tasks}) {
-    //const totalTasks = tasks.length;
-    //const completedTasks = tasks.filter(task => task.completed).length;
+function TaskCounter({completed, total}) {
+    
     return (
-        <p>hi</p>
+        <p>{`${completed} / ${total}`}</p>
     )
 }
 
-export default TaskCounter;
+export default TaskCounter

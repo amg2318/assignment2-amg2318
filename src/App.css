@@ -1,1 +1,327 @@
 /* Paste your Assignment 1 styles.css here. Keep the icons in src/assets/ so url(assets/...) paths keep working. */
+/* This is your CSS file */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Making the red site header. */
+.site-header {
+    background-color: #dc4c3e;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px 4px 0px 0px;
+    padding: 0px 32px 0px 40px;
+}
+
+/* "Left content" is a container includes the hamburger menu and the search bar. */
+.left-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+/* The hamburger menu icon. */
+.hamburger {
+    border: none;
+    background-color: #dc4c3e;
+}
+
+/* Search bar container */
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    background-color: #ffffff33;
+    border-radius: 4px;
+    align-items: center;
+}
+
+/* Search icon */
+.search-bar img {
+    margin: 4px 4px 4px 8px;
+}
+
+/* Formatting the text input for the search bar. */
+.search-bar input {
+    border: none;
+    background: none;
+    margin-right: 8px;
+    padding: 4px;
+}
+
+/* Removing the little box that appears when active/focused. */
+.search-bar input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Reformatting the placeholder text in the searchbar. */
+.search-bar input::placeholder {
+    color: #ffffffCC;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+/* Task counter container. */
+.task-counter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Task counter numbers. */
+.task-counter p {
+    color: #ffffff;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+/* Everything besides the header, separating aside and section as two columns. */
+.site-main {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+}
+
+/* Vertical left navbar.*/
+.navbar {
+    background-color: #fefbf2;
+    width: 300px;
+}
+
+/* Each tab in the nav bar. */
+.nav-items li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding: 0px 8px 0px 8px;
+    margin-right: 8px;
+    border-radius: 8px;
+}
+
+/* Formatting for hover. Not required but helped approximate spacing in the screenshot.*/
+.nav-items li:hover {
+    background-color: #ffffffCC;
+}
+
+/* Hiding the vertical left nav on screen sizes below 480px. */
+@media (max-width: 480px) {
+    .navbar {
+        display: none;
+    }
+}
+
+/* Main text of each tab, e.g. "Upcoming" */
+.main-text {
+    font-size: 14px;
+    color: #000000;
+}
+
+/* Bolding only the current tab, in this case "Inbox". */
+#current-tab {
+    font-weight: bold;
+} 
+
+/* Formatting the task count for each tab. */
+.task-count {
+    font-size: 12px;
+    color: #7e7d79;
+}
+
+/* Format for main content, where the task lists live. */
+.main-content {
+    padding: 16px 32px 16px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+/* Formatting the heading, in this case "Inbox". */
+.main-content h1 {
+    font-size: 20px;
+}
+
+/* Task list, aligned with header and spanning the whole available window. */
+.task-list {
+    left: 0px;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+/* Each task (technically the label, that's why there's font size here). */
+.task {
+    padding: 16px 0px 16px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+}
+
+.task.completed {
+    text-decoration: line-through;
+}
+
+/* Hiding the original default checkbox. Was there a better way to do this? */
+.task input{
+    opacity: 0;
+    cursor: pointer;
+    width: 0px;
+    height: 0px;
+    margin: 0px;
+}
+
+.task-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: lightgray;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+/* .task-item:hover {
+    background-color: #7e7d791A;
+} */
+
+.delete-button {
+    display: flex;
+    border: none;
+    background-color: transparent;
+    padding: 4px;
+    height: fit-content;
+}
+
+.delete-button:hover {
+    background-color: #7e7d791A;
+    border-radius: 4px;
+}
+
+.delete-button:active {
+    background-color: #7e7d7940;
+    border-radius: 4px;
+}
+
+/* Making a round checkbox to replace the default. */
+.checkmark {
+    border-radius: 100px;
+    margin-right: 16px;
+    height: 16px;
+    width: 16px;
+    background-color: #ffffff;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #7e7d79;
+    flex-shrink: 0;
+}
+
+/* Adding checkbox functionality. */
+.task:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.task input:checked ~ .checkmark.completed {
+  background-color: #ffffff;
+}
+
+.checkmark.completed:after {
+  content: "";
+  display: none;
+}
+
+.task input:checked ~ .checkmark.completed:after {
+  display: block;
+}
+
+/* Making the checkmark and positioning it. Was there a better way to do this? */
+.checkmark.completed:after {
+    position: relative;
+    top: 2px;
+    left: 4px;
+    width: 3px;
+    height: 6px;
+    border: solid #7e7d79;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.task-form {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+.task-form input{
+    border-width: 0 0 2px 0;
+    width: 100%;
+}
+
+/* add task button styling */
+.add-task {
+    flex-shrink: 0;
+    padding: 8px 8px 8px 8px;
+    background-color: #3354C4;
+    box-shadow: none;
+    border: hidden;
+    color: white;
+    border-radius: 4px;
+}
+
+.add-task:hover {
+    background-color: cornflowerblue;
+}
+
+.add-task:hover {
+    background-color: #162E81;
+}
+
+.add-task:disabled {
+    background-color: #3354C4;
+    opacity: 30%;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-buttons p {
+    color: lightgray;
+}
+
+.filter {
+    background-color: transparent;
+    border: hidden;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    padding: 4px 8px 4px 8px;
+    border-radius: 4px;
+}
+
+.filter:hover {
+    background-color: #dc4c3e;
+}
+
+.filter.selected {
+    background-color: #dc4c3e;
+    color: white;
+}
+
+/* Formats the header and main into two rows.*/
+.page {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+}
