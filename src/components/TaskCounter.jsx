@@ -1,7 +1,7 @@
 function TaskCounter({completed, total}) {
     
     return (
-        <p>{`${completed} / ${total}`}</p>
+        <p>{`${total} / ${completed}`}</p>
     )
 }
 
